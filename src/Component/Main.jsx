@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 const Counter = () => {
   const [count, setCount] = useState(0);
 
-  const increment = () => setCount(prevCount => prevCount + 1);
-  const decrement = () => setCount(prevCount => prevCount - 1);
+  // Handlers
+  const increment = () => setCount(c => c + 1);
+  const decrement = () => setCount(c => c - 1);
   const reset = () => setCount(0);
 
   return (
@@ -17,28 +18,15 @@ const Counter = () => {
           <div className="counter-display">
             <div className="count-number">{count}</div>
 
+            {/* Button group: Decrement, Reset, Increment */}
             <div className="button-group">
-              <button
-                onClick={decrement}
-                className="counter-button decrement"
-                aria-label="Decrease counter"
-              >
+              <button onClick={decrement} className="counter-button decrement" aria-label="Decrease">
                 <span className="button-icon">－</span>
               </button>
-
-              <button
-                onClick={reset}
-                className="counter-button reset"
-                aria-label="Reset counter"
-              >
+              <button onClick={reset} className="counter-button reset" aria-label="Reset">
                 <span className="button-icon">↺</span>
               </button>
-
-              <button
-                onClick={increment}
-                className="counter-button increment"
-                aria-label="Increase counter"
-              >
+              <button onClick={increment} className="counter-button increment" aria-label="Increase">
                 <span className="button-icon">＋</span>
               </button>
             </div>
